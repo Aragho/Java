@@ -39,7 +39,34 @@ public class Kata{
    		else return false;
 
    } 
+	public static int subtract(int number1 , int number2){
 
-}
+		int subtraction =  number1 - number2;
 
-                
+		if(subtraction < 0 ) subtraction *= -1;
+
+		
+		
+
+		return subtraction;  
+
+
+	}
+	
+	public static float division(int firstNumber , int secondNumber){
+
+		if(secondNumber == 0  || firstNumber == 0) return 0;
+
+		float numbers = (float)firstNumber / (float)secondNumber;
+
+		
+
+		 return numbers;
+
+		
+
+		
+		
+	}
+
+}     
