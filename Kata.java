@@ -39,7 +39,7 @@ public class Kata{
    		else return false;
 
    } 
-	public static int subtract(int number1 , int number2){
+	 public static int subtract(int number1 , int number2){
 
 		int subtraction =  number1 - number2;
 
@@ -68,5 +68,23 @@ public class Kata{
 		
 		
 	}
+	
+	public static int factor(int userInput){
 
-}     
+		
+			int factor = 0;
+					
+			for(int index = 1; index <= userInput; index++){
+			
+			if(userInput % index == 0)
+			 factor++;
+			}
+
+			if (factor == 1) {
+			}
+				return factor;
+
+    	}
+
+
+}  
