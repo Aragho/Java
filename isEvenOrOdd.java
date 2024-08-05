@@ -1,9 +1,9 @@
 
 
-public class IsEvenOrOdd{
+public class Kata{
 
   
-	    public static boolean isEvenOrOdd(int number){
+	    public static boolean Kata(int number){
 		
 		
         if (number % 2 == 0) {

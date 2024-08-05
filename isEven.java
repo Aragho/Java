@@ -10,7 +10,7 @@ public class IsEven{
 		 int number = input.nextInt();
        
 
-		boolean result = IsEvenOrOdd.isEvenOrOdd( number);
+		boolean result = Kata.IsEven( number);
 			System.out.println("number is " + result);
         }
  }
