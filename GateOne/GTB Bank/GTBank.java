@@ -79,6 +79,12 @@ public class GTBank{
 			System.out.println("Enter the amount to deposit:");
 			double depositAmount = input.nextDouble();
 
+			
+                    if (depositAmount <= 0) {
+                        System.out.println("Invalid amount. Please enter a positive number.");
+                        break;
+                    }
+
 			double newBalance = balances.get(index) + depositAmount;
 			balances.set(index,newBalance);
 
@@ -95,7 +101,13 @@ public class GTBank{
 				System.out.println("Account number not found!");
 				break;
 			}
-
+			
+			System.out.println("Enter your pin:");
+			int enteredPin = input.nextInt();
+			if(pins.get(index) != enteredPin){
+				System.out.println("Incorrect PIN!:");
+				break;
+			}
 			
                     	System.out.println("Enter the amount to withdraw:");
                     	double withdrawAmount = input.nextDouble();
@@ -106,9 +118,13 @@ public class GTBank{
                          newBalance = currentBalance - withdrawAmount;
                         balances.set(index, newBalance);
                         System.out.println("Withdrawal successful! New balance: " + newBalance);
+		     }else if (withdrawAmount <= 0) {
+			System.out.println("Invalid amount. please enter a valid number>");
+
                     } else {
                         System.out.println("Insufficient balance!");
-                    }
+                   	 
+		    }
                     break;
 
 		case 4:
@@ -121,11 +137,72 @@ public class GTBank{
         		break;
    			 }
 
+			System.out.println("Enter your pin:");
+			enteredPin = input.nextInt();
+			if(pins.get(index) != enteredPin){
+				System.out.println("Incorrect PIN!:");
+				break;
+			}
+			
+
+
    			 currentBalance = balances.get(index);
    			 System.out.println("Your balance is: " + currentBalance);
    			 break;
 
+
+		case 5:
+			
+    			System.out.println("Enter your account number:");
+   			accountNumber = input.nextInt();
+    			index = accountNumbers.indexOf(accountNumber);
+
+    			if (index == -1) {
+       			 System.out.println("Account number not found!");
+        		break;
+   			 }
+
+			System.out.println("Enter your pin:");
+			enteredPin = input.nextInt();
+			if(pins.get(index) != enteredPin){
+				System.out.println("Incorrect PIN!:");
+				break;
+			}
+
+			System.out.println("Enter the  receiver's account number:");
+			int receiverAccountNumber = input.nextInt();
+			int receiverIndex = accountNumbers.indexOf(receiverAccountNumber);
+
+			if(receiverIndex == -1){
+				System.out.println("Receiever account not found!");
+				break;
+			}
+
+			System.out.println("Enter the amount to transfer:");
+			double transferAmount = input.nextDouble();
+
+			double senderBalance = balances.get(index);
+			if (senderBalance >= transferAmount && transferAmount > 0){
+			double newSenderBalance = senderBalance - transferAmount;
+			balances.set(index, newSenderBalance);
+
+			double receiverBalance = balances.get(receiverIndex);
+                        double newReceiverBalance = receiverBalance + transferAmount;
+                        balances.set(receiverIndex, newReceiverBalance);
+
+                        System.out.println("Transfer successful! New balance: " + newSenderBalance);
+                    } else if (transferAmount <= 0) {
+                        System.out.println("Invalid amount. Please enter a positive amount.");
+                    } else {
+                        System.out.println("Insufficient balance!");
+                    }
+                    break;
+
+
+			
+
 		case 6:
+
 			System.out.println("Enter your account number:");
    			accountNumber = input.nextInt();
     			index = accountNumbers.indexOf(accountNumber);
@@ -165,8 +242,15 @@ public class GTBank{
         		break;
     			}
 
-    // Remove account details from all lists
-    			firstNames.remove(index);
+			System.out.println("Enter your pin:");
+			enteredPin = input.nextInt();
+			if(pins.get(index) != enteredPin){
+				System.out.println("Incorrect PIN!:");
+				break;
+			}
+
+
+       			firstNames.remove(index);
     			lastNames.remove(index);
    			 pins.remove(index);
     			balances.remove(index);
@@ -203,4 +287,5 @@ public class GTBank{
 
 
 	}
+   
 }

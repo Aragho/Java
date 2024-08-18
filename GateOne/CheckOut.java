@@ -95,8 +95,8 @@ public class CheckOut{
 	System.out.printf("\tSubtotal: $%15.2f\n", total);
         System.out.printf("\tVAT: $%20.2f\n",	  VAT);
 	System.out.printf("\tdiscount: $%15.2f\n" ,discountAmount);
-	System.out.println("-------------------------------------------------------------")
-;
+	System.out.println("-------------------------------------------------------------");
+
 
 	 System.out.println("============================================================	");
 
